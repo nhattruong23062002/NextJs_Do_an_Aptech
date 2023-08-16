@@ -1,0 +1,31 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "antd": "^5.7.3",
+    "axios": "^1.4.0",
+    "bootstrap": "^5.3.1",
+    "eslint": "8.44.0",
+    "eslint-config-next": "13.4.7",
+    "jwt-decode": "^3.1.2",
+    "moment": "^2.29.4",
+    "next": "13.4.7",
+    "query-string": "^8.1.0",
+    "rc-input-number": "^8.0.1",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.10.1",
+    "react-paginate": "^8.2.0",
+    "react-paypal-button-v2": "^2.6.3",
+    "socket.io-client": "^4.7.2",
+    "swiper": "^9.4.1",
+    "zustand": "^4.3.9"
+  }
+}

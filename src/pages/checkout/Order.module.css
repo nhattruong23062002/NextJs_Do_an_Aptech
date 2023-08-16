@@ -1,0 +1,353 @@
+.body {
+  padding-bottom: 50px;
+}
+.heading {
+  text-align: center;
+  margin: 15px 0px;
+  color: #0088cc;
+}
+.wrapperAddress {
+  width: 100%;
+  height: 120px;
+  background-color: #fff;
+  padding: 20px 50px;
+  display: flex;
+  align-items: center;
+}
+.wrapperAddress .title {
+  color: #fd8700;
+  font-size: 20px;
+}
+.wrapperAddress .p {
+  font-weight: 600;
+  margin-top: 10px;
+  margin-left: 5px;
+}
+.addressInfo {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+.addressTitle {
+  width: 400px;
+}
+.addressInfo .span {
+  color: #fd8700;
+  border: 1px solid #fd8700;
+  font-size: 12px;
+  margin-left: 80px;
+  height: 20px;
+  margin-top: 10px;
+}
+.addressInfo .p {
+  color: #0029df;
+}
+.wrapperProductsOrder {
+  background-color: #fff;
+  margin-top: 30px;
+  width: 100%;
+  height: auto;
+  padding: 30px 50px 0px 50px;
+}
+.productList {
+  border: none;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Áp dụng kiểu dáng cho các ô tiêu đề của bảng */
+.productList th {
+  padding-bottom: 30px;
+  text-align: center;
+}
+
+/* Áp dụng kiểu dáng cho các ô dữ liệu của bảng */
+.productList td {
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+/* Tạo khoảng cách giữa các hàng */
+.productList tr {
+}
+
+.productList td img {
+  width: 80px;
+  height: 80px;
+}
+.productList td p {
+  margin-left: 20px;
+}
+
+.comment {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 20px;
+}
+.comment p {
+  margin-top: 8px;
+}
+.comment input {
+  margin-left: 30px;
+  width: 300px;
+  height: 40px;
+}
+.totalPriceBefore {
+  text-align: right;
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+.totalPriceBefore span {
+  color: #fd8700;
+  font-size: 24px;
+  font-weight: 600;
+}
+.wrapperPay {
+  width: 100%;
+  background-color: #fff;
+  padding: 30px 50px;
+  margin-top: 30px;
+}
+.payMethod {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ccc;
+}
+.payMethod span {
+  padding-left: 15px;
+  font-weight: 600;
+  color: #0029df;
+}
+
+.changePayment {
+  display: flex;
+}
+
+.paymentItem {
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  margin: 0px 10px;
+}
+
+.totalPriceAfter {
+  display: flex;
+  justify-content: right;
+  margin-top: 20px;
+  right: 0;
+  text-align: right;
+}
+.totalPriceAfter table {
+}
+.totalPriceAfter div h3 {
+  margin-right: 30px;
+}
+.totalPriceAfter table td {
+  padding-top: 5px;
+}
+.totalPriceAfter table .td {
+  color: #fd8700;
+  font-size: 30px;
+  margin-top: -5px;
+  padding-left: 20px;
+  font-weight: 600;
+}
+.btn {
+  text-align: right;
+  margin-top: 10px;
+}
+.btnPaypal{
+  display: flex;
+  justify-content: right;
+  margin-top: 10px;
+}
+.inputInModal {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 20px;
+}
+
+.inputInModal input {
+  height: 40px;
+  width: 230px;
+}
+.selectLocation {
+  display: flex;
+  justify-content: center;
+}
+.selectLocation select {
+  height: 50px;
+  width: 160px;
+}
+.locationDetail {
+  margin-top: 5px;
+  width: 100%;
+  height: 40px;
+}
+.active{
+  border: 2px solid #fd8700;
+  color: #fd8700;
+}
+@media screen and (max-width: 577px) {
+  .wrapperAddress {
+    padding: 15px 10px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    position: relative;
+    height: auto;
+  }
+  .wrapperAddress .title {
+    font-size: 16px;
+  }
+  .wrapperAddress .p {
+    font-size: 14px;
+  }
+  .addressInfo {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .addressTitle {
+    width: 200px;
+  }
+  .addressInfo p{
+    font-size: 14px;
+    margin-top: -8px;
+    margin-left: 5px;
+  }
+  .addressInfo .p{
+    position: absolute;
+    right: 5px;
+    top: 30%;
+  }
+  .selectLocation select {
+    height: 45px;
+    width: 100%;
+    font-size: 11px;
+  }
+  .selectLocation{
+    flex-direction: column;
+    margin-bottom: 5px;
+    margin-top: -5px;
+  }
+  
+  .inputInModal input {
+    height: 40px;
+    width: 150px;
+  }
+  .wrapperProductsOrder {
+    background-color: #fff;
+    margin-top: 30px;
+    width: 100%;
+    height: auto;
+    padding: 30px 10px;
+  }
+  .productList {
+    border: none;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  /* Áp dụng kiểu dáng cho các ô tiêu đề của bảng */
+  .productList tr th {
+    display: none;
+  }
+  
+  /* Áp dụng kiểu dáng cho các ô dữ liệu của bảng */
+  .productList td {
+    text-align: center;
+    padding-bottom: 20px;
+  }
+  
+  .productList td p {
+    margin-left: 15px;
+    font-size: 15px;
+    margin-top: -45px;
+  }
+  
+  .tdPrice {
+    position: absolute;
+    left: 125px;
+    font-size: 14px;
+    margin-top: -45px;
+
+  }
+  .tdQuantity{
+    position: absolute;
+    right: 30px;
+    margin-top: -40px;
+    font-size: 14px;
+
+  }
+  .tdTotal{
+    display: none;
+  }
+  
+  .productList td img {
+    position: relative;
+    width: 80px;
+    height: 80px;
+  }
+  .comment {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+  }
+  .comment p {
+    margin-top: 8px;
+    font-size: 16px;
+  }
+  .comment input {
+    margin-left: 10px;
+    width: 300px;
+    height: 40px;
+  }
+  .totalPriceBefore {
+    text-align: left;
+    margin-top: 20px;
+    font-size: 16px;
+  }
+  .totalPriceBefore span {
+    font-size: 20px;
+    margin-left: 5px;
+  }
+  .wrapperPay {
+    padding: 20px 10px;
+  }
+  .payMethod h3{
+    font-size: 14px;
+  }
+  .payMethod span {
+    font-size: 14px;
+  }
+  .payMethod p{
+    font-size: 14px;
+  }
+  .payBefore{
+    flex-direction: column;
+    text-align: right;
+  }
+  .changePayment .paymentItem {
+   font-size: 12px;
+  }
+  .paymentItem:first-child{
+    height: 40px;
+  }
+
+  .totalPriceAfter div h3 {
+    margin-right: 30px;
+  }
+  .totalPriceAfter table td {
+    padding-top: 5px;
+    font-size: 16px;
+  }
+  .totalPriceAfter table .td {
+    font-size: 26px;
+  }
+
+}

@@ -1,0 +1,251 @@
+.heading {
+  font-size: 24px;
+}
+.title {
+  margin-bottom: 5vh;
+}
+.card {
+  margin: auto;
+  width: 100%;
+  border: transparent;
+  padding-bottom: 50px;
+  margin-top: 20px;
+}
+.wrapQuantityAndPrice {
+  display: flex;
+}
+@media (max-width: 767px) {
+  .card {
+    margin: 3vh auto;
+  }
+}
+.cart {
+  position: relative;
+  background-color: #fff;
+  padding: 3vh 5vh 8vh 5vh;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  box-shadow: 0px 0px 20px 0px rgba(143, 143, 143, 0.19);
+}
+@media (max-width: 767px) {
+  .cart {
+    padding: 4vh;
+    border-bottom-left-radius: unset;
+    border-top-right-radius: 1rem;
+  }
+}
+.summary {
+  background-color: #ddd;
+  border-top-right-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+  padding: 4vh;
+  color: rgb(65, 65, 65);
+  height: 600px;
+}
+@media (max-width: 767px) {
+  .summary {
+    border-top-right-radius: unset;
+    border-bottom-left-radius: 1rem;
+  }
+}
+.summary .col-2 {
+  padding: 0;
+}
+.summary .col-10 {
+  padding: 0;
+}
+.row {
+  margin: 0;
+}
+.title b {
+  font-size: 1.5rem;
+}
+.main {
+  margin: 0;
+  padding: 2vh 0;
+  width: 100%;
+}
+.col-2,
+.col {
+  padding: 0 1vh;
+}
+.a {
+  padding: 0 1vh;
+}
+.close {
+  margin-left: auto;
+  font-size: 0.7rem;
+}
+.img {
+  height: 65px;
+  width: 65px;
+  margin-left: 20px;
+}
+.back {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+.h5 {
+  margin-top: 4vh;
+}
+.hr {
+  margin-top: 1.25rem;
+}
+.form {
+  padding: 2vh 0;
+}
+.select {
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  padding: 1.5vh 1vh;
+  margin-bottom: 4vh;
+  outline: none;
+  width: 100%;
+  background-color: rgb(247, 247, 247);
+}
+.input {
+  border: 1px solid rgba(0, 0, 0, 0.137);
+  padding: 1vh;
+  margin-bottom: 4vh;
+  outline: none;
+  width: 100%;
+  background-color: rgb(247, 247, 247);
+}
+.input:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+.btn {
+  background-color: #000;
+  border-color: #000;
+  color: white;
+  width: 100%;
+  font-size: 18px;
+  margin-top: 2vh;
+  padding: 1vh;
+  border-radius: 0;
+}
+.btn:focus {
+  box-shadow: none;
+  outline: none;
+  box-shadow: none;
+  color: white;
+  -webkit-box-shadow: none;
+  -webkit-user-select: none;
+  transition: none;
+}
+.btn:hover {
+  background-color: #494949;
+}
+.a {
+  color: black;
+}
+.a:hover {
+  color: black;
+  text-decoration: none;
+}
+#code {
+  background-image: linear-gradient(
+      to left,
+      rgba(255, 255, 255, 0.253),
+      rgba(255, 255, 255, 0.185)
+    ),
+    url("https://img.icons8.com/small/16/000000/long-arrow-right.png");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: center;
+}
+.wrapProducts {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 0px;
+  align-items: center;
+  padding-bottom: 10px;
+}
+.wrapImage {
+  display: flex;
+  width: 300px;
+}
+.checkbox {
+  min-width: 20px;
+}
+.name {
+  font-size: 16px;
+  margin-left: 20px;
+  margin-top: 7px;
+}
+.delete {
+  font-size: 16px;
+  margin-right: 10px;
+}
+.delete:hover {
+  color: rgb(255, 0, 0);
+}
+.quantity {
+  display: flex;
+  align-items: center;
+  width: 100px;
+  border: 1px solid #ccc;
+  margin-right: 20px;
+}
+.btnQuantity {
+  background-color: #fff;
+  color: #000;
+  margin: 0 10px;
+}
+.inputQuatity {
+  width: 40px;
+  height: 30px;
+  text-align: center;
+  font-size: 14px;
+  border: none;
+}
+.price {
+  padding-left: 30px;
+}
+
+@media screen and (max-width: 577px) {
+  .heading {
+    font-size: 21px;
+  }
+  .title {
+    margin-bottom: 1vh;
+  }
+  .wrapProducts {
+    flex-direction: column;
+    padding-top: 10px;
+  }
+  .name {
+    position: relative;
+  }
+  .quantity {
+    margin-left: 150px;
+    height: 30px;
+    margin-right: 0px;
+  }
+  .delete {
+    position: absolute;
+    left: 8px;
+    bottom: 5px;
+  }
+  .back {
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+  }
+  .summary {
+    margin-top: 40px;
+    padding-bottom: 30px;
+    height: auto;
+  }
+  .cart {
+    padding: 3vh 4vh 6vh 2vh;
+  }
+  .price {
+    padding-left: 20px;
+  }
+}
