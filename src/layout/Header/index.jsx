@@ -153,9 +153,9 @@ function Header({ handleSearch }) {
                     </li>
                     ):('')}
                     <li>
-                      <a onClick={handleLogout} href="#">
+                      <Link onClick={handleLogout} href="/">
                         Đăng xuất
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                 </li>
