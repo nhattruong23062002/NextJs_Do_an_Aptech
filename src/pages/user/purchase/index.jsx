@@ -8,6 +8,7 @@ import { BsFillCarFrontFill } from "react-icons/bs";
 import { useRouter } from "next/router";
 import { ImArrowLeft2 } from "react-icons/im";
 import jwt_decode from "jwt-decode";
+import { Button, Modal } from 'antd';
 
 import HeadMeta from "@/components/HeadMeta";
 import Header from "@/layout/Header";
@@ -24,6 +25,9 @@ const App = () => {
   const [isMobile, setIsMobile] = useState(false);
   const [customerId, setCustomerId] = useState(null);
   const router = useRouter();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen2, setIsModalOpen2] = useState(false);
+
 
   useEffect(() => {
     const handleResize = () => {
@@ -78,7 +82,14 @@ const App = () => {
     checkLoggedIn();
   }, []);
 
-  const handleCancelOrder = async (id, orderDetails) => {
+  const showModal = () => {
+    setIsModalOpen(true);
+  };
+  const handleCancel = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleOk = async (id, orderDetails) => {
     const token = getTokenFromLocalStorage();
     if (token) {
       try {
@@ -103,7 +114,7 @@ const App = () => {
             stock: newStock,
           });
         }
-        alert("Đơn hàng đã được hủy");
+        setIsModalOpen(false);
         checkLoggedIn();
       } catch (error) {
         alert("Lỗi!!!Hủy đơn hàng thất bại", error);
@@ -111,7 +122,15 @@ const App = () => {
     }
   };
 
-  const handleCompletedOrder = async (id) => {
+  
+  const showModal2 = () => {
+    setIsModalOpen2(true);
+  };
+  const handleCancel2 = () => {
+    setIsModalOpen2(false);
+  };
+
+  const handleOk2 = async (id) => {
     const token = getTokenFromLocalStorage();
     if (token) {
       try {
@@ -128,7 +147,7 @@ const App = () => {
             headers,
           }
         );
-        alert("Đơn hàng đã được xác nhận giao thành công");
+        setIsModalOpen2(false);
         checkLoggedIn();
         router.push("/user/purchase");
       } catch (error) {
@@ -283,13 +302,14 @@ const App = () => {
                     {p.status === "WAITING" && (
                       <>
                         <button
-                          onClick={() =>
-                            handleCancelOrder(p._id, p.orderDetails)
-                          }
+                          onClick={showModal}
                           className={styles.btnCancel}
                         >
                           Hủy đơn
                         </button>
+                        <Modal title="Thông báo!" open={isModalOpen} onOk={() => handleOk(p._id, p.orderDetails)} onCancel={handleCancel}>
+                        <p>Bạn có muốn hủy đơn hàng?</p>
+                      </Modal>
                       </>
                     )}
                     {p.status === "CANCELED" && (
@@ -301,12 +321,17 @@ const App = () => {
                       </button>
                     )}
                     {p.status === "DELIVERING" && (
+                      <>
                       <button
-                        onClick={() => handleCompletedOrder(p._id)}
+                        onClick={showModal2}
                         className={styles.btnDelivering}
                       >
                         Đã nhận được hàng
                       </button>
+                      <Modal title="Thông báo!" open={isModalOpen2} onOk={() => handleOk2(p._id)} onCancel={handleCancel2}>
+                      <p>Bạn có muốn xác nhận đơn hàng đã được giao?</p>
+                    </Modal>
+                      </>
                     )}
                   </div>
                 </div>

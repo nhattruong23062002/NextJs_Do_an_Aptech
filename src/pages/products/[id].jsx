@@ -169,7 +169,7 @@ const ProductDetail = (props) => {
 
   const handleBuyNow = () => {
     if (isLoggedIn) {
-      const totalPrice = quantity * product.price;
+      const totalPrice = quantity * product.discountedPrice;
       const totalPriceQueryParam = totalPrice.toString();
       
       const productArray = [{...product, quantity}];
@@ -237,8 +237,8 @@ const ProductDetail = (props) => {
             <div className={styles.namePhoduct}>{product.name}</div>
             <div className={styles.description}>{product.description}</div>
             <div className={styles.price}>
-              <p>{product.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p>
-              <del>{product.discountedPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</del>
+              <p>{product.discountedPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p>
+              <del>{product.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</del>
             </div>
             <div className={styles.quantity}>
               Số lượng:

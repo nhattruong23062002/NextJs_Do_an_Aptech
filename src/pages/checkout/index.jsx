@@ -394,9 +394,9 @@ const Checkout = () => {
                     <img src={s.photo} alt="" />
                     <p>{s.name}</p>
                   </td>
-                  <td className={styles.tdPrice}>{(s.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
+                  <td className={styles.tdPrice}>{(s.discountedPrice ? s.discountedPrice : s.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
                   <td className={styles.tdQuantity}>x{s.quantity}</td>
-                  <td className={styles.tdTotal}>{(s.price * s.quantity).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
+                  <td className={styles.tdTotal}>{(s.discountedPrice ? (s.discountedPrice * s.quantity) : (s.price * s.quantity)).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
                 </tr>
               ))}
             </tbody>
