@@ -11,6 +11,7 @@ import { SmileOutlined, SolutionOutlined } from "@ant-design/icons";
 import { BsFillCarFrontFill } from "react-icons/bs";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
 import moment from "moment";
+import jwt_decode from "jwt-decode";
 
 import HeadMeta from "@/components/HeadMeta";
 import Header from "@/layout/Header";
@@ -19,6 +20,7 @@ import styles from "./../Purchase.module.css";
 import { getTokenFromLocalStorage } from "@/utils/tokenUtils";
 import axiosClient from "@/libraries/axiosClient";
 import MenuComponent from "@/components/Menu";
+
 
 function getItem(label, key, icon, children, type) {
   return {
@@ -47,6 +49,8 @@ const items = [
 ];
 const App = () => {
   const [order, setOrder] = useState([]);
+  const [fullName, setFullName] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
 
   const router = useRouter();
   const { id } = router.query; // Lấy giá trị của id từ URL
@@ -58,6 +62,28 @@ const App = () => {
     console.log("click ", e);
   };
 
+  useEffect(() => {
+    const token = getTokenFromLocalStorage();
+  
+    if (token) {
+      try {
+        // Giải mã token để lấy thông tin customerId
+        const decodedToken = jwt_decode(token);
+        const {
+          _id: customerId,
+          firstName: firstName,
+          lastName: lastName,
+          phoneNumber: phoneNumber,
+        } = decodedToken;
+        setPhoneNumber(phoneNumber);
+        setFullName(firstName + " " + lastName);
+      } catch (error) {
+        console.error("Error decoding token:", error);
+        setCustomerId(null);
+      }
+    }
+  }, []);
+  
   useEffect(() => {
     const checkLoggedIn = async () => {
       const token = getTokenFromLocalStorage();
@@ -196,8 +222,8 @@ const App = () => {
                 <div key={p._id}>
                   <div className={styles.addressOrderDetail}>
                     <h3>Địa chỉ nhận hàng</h3>
-                    <h4>Trương Văn Nhật</h4>
-                    <p>03435525253</p>
+                    <h4>{fullName}</h4>
+                    <p>{phoneNumber}</p>
                     <p>{p.shippingAddress}</p>
                   </div>
                   <div className={styles.wrapperOrder}>
