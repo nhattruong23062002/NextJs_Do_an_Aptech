@@ -258,7 +258,7 @@ const App = () => {
                           <p style={{ fontSize: "14px" }}>x{o.quantity}</p>
                         </div>
                       </Link>
-                      <span>{o.price}đ</span>
+                      <span>{(o.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</span>
                     </div>
                   ))}
                   <div className={styles.wrapperTotal}>
@@ -270,8 +270,8 @@ const App = () => {
                             total +
                             o.price * o.quantity * (1 - p.discount / 100),
                           11000
-                        )}
-                        đ
+                        ).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}
+                        
                       </span>
                     </div>
                     <button

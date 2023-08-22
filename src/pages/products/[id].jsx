@@ -155,7 +155,6 @@ const ProductDetail = (props) => {
             },
           }
           );      
-          console.log('««««« response.payload »»»»»', response);
           addToCart(productId);
           fetchCartData1(customerId)
       } catch (error) {
@@ -238,8 +237,8 @@ const ProductDetail = (props) => {
             <div className={styles.namePhoduct}>{product.name}</div>
             <div className={styles.description}>{product.description}</div>
             <div className={styles.price}>
-              <p>đ{product.price}</p>
-              <del>đ{product.discountedPrice}</del>
+              <p>{product.price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p>
+              <del>{product.discountedPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</del>
             </div>
             <div className={styles.quantity}>
               Số lượng:

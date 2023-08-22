@@ -32,8 +32,8 @@ const ProductItem = (props) => {
           <i className="bx bx-star" />
         </div>
         <div className="price">
-          <p>{discountedPrice}đ</p>
-          <del>{price}đ</del>
+          <p>{discountedPrice.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</p>
+          <del>{price.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</del>
         </div>
         <div className="buy-now">
         <button onClick={handleAddToCart}>

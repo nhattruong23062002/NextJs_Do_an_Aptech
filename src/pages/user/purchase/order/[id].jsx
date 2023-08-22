@@ -10,7 +10,7 @@ import { useRouter } from "next/router";
 import { SmileOutlined, SolutionOutlined } from "@ant-design/icons";
 import { BsFillCarFrontFill } from "react-icons/bs";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
-import moment from 'moment';
+import moment from "moment";
 
 import HeadMeta from "@/components/HeadMeta";
 import Header from "@/layout/Header";
@@ -101,10 +101,9 @@ const App = () => {
     }
   };
 
-
   return (
     <>
-      <HeadMeta title="Order Detail"/>
+      <HeadMeta title="Order Detail" />
       <Header />
       <main className={styles.main}>
         <div style={{ display: "flex" }} className="container">
@@ -113,7 +112,7 @@ const App = () => {
               src="https://wallpapers.com/images/featured/background-design-background-6tgpche84avnjqvz.jpg"
               alt=""
             />
-           <MenuComponent/>
+            <MenuComponent />
           </div>
           <div className={styles.wrapperOrderDetail}>
             <div className={styles.headingOrderDetail}>
@@ -122,25 +121,24 @@ const App = () => {
                 Trở lại
               </Link>
               {filteredOrder.map((p) => (
-              <div key={p._id}>
-              {p.status === 'WAITING' && (
-                <p>Chờ xác nhận</p>
-              )}
-              {p.status === 'CANCELED' && (
-                <p>Đã hủy</p>
-              )}
-              {p.status === 'DELIVERING' && (
-                <p>Đang giao</p>
-              )}
-              {p.status === 'COMPLETED' && (
-                <p>Hoàn thành</p>
-              )}
+                <div key={p._id}>
+                  {p.status === "WAITING" && <p>Chờ xác nhận</p>}
+                  {p.status === "CANCELED" && <p>Đã hủy</p>}
+                  {p.status === "DELIVERING" && <p>Đang giao</p>}
+                  {p.status === "COMPLETED" && <p>Hoàn thành</p>}
                 </div>
               ))}
             </div>
             {filteredOrder.map((p) => {
               // Tìm vị trí của bước đã hoàn thành
-              const completedIndex = p.status === 'COMPLETED' ? 3 : p.status === 'DELIVERING' ? 2 : p.status === 'WAITING' ? 1 : 0;
+              const completedIndex =
+                p.status === "COMPLETED"
+                  ? 3
+                  : p.status === "DELIVERING"
+                    ? 2
+                    : p.status === "WAITING"
+                      ? 1
+                      : 0;
               const momentObj = moment(p.createdDate);
               const normalFormat = momentObj.format("DD/MM/YYYY HH:mm:ss");
 
@@ -149,41 +147,45 @@ const App = () => {
                   <Steps
                     items={[
                       {
-                        title: 'Đã đặt đơn',
-                        status: completedIndex >= 0 ? 'finish' : '',
+                        title: "Đã đặt đơn",
+                        status: completedIndex >= 0 ? "finish" : "",
                         icon: <SolutionOutlined />,
                       },
                       {
-                        title: 'Chờ xác nhận',
-                        status: completedIndex >= 1 ? 'finish' : '',
+                        title: "Chờ xác nhận",
+                        status: completedIndex >= 1 ? "finish" : "",
                         icon: <FaMoneyBill1Wave />,
                       },
                       {
-                        title: 'Đang giao hàng',
-                        status: completedIndex >= 2 ? 'finish' : '',
+                        title: "Đang giao hàng",
+                        status: completedIndex >= 2 ? "finish" : "",
                         icon: <BsFillCarFrontFill />,
                       },
                       {
-                        title: 'Giao thành công',
-                        status: completedIndex >= 3 ? 'finish' : '',
+                        title: "Giao thành công",
+                        status: completedIndex >= 3 ? "finish" : "",
                         icon: <SmileOutlined />,
                       },
                     ]}
                   />
-                  <div style={{display:"flex"}}>
-                  <p className={styles.createdDate}>Ngày đặt: {normalFormat}</p>
-                  {p.status === 'WAITING' || p.status === 'DELIVERING' && (
-                    <button
-                      onClick={() => handleCompletedOrder(p._id)}
-                      className={styles.btnDeliveringDetail}
-                    >
-                      Đã nhận được hàng
-                    </button>
-                  )}
-                  {p.status === 'CANCELED' && (
-                    <h4 className={styles.h4Canceled} >Đơn hàng đã được hủy</h4>
-                  )
-                  }
+                  <div style={{ display: "flex" }}>
+                    <p className={styles.createdDate}>
+                      Ngày đặt: {normalFormat}
+                    </p>
+                    {p.status === "WAITING" ||
+                      (p.status === "DELIVERING" && (
+                        <button
+                          onClick={() => handleCompletedOrder(p._id)}
+                          className={styles.btnDeliveringDetail}
+                        >
+                          Đã nhận được hàng
+                        </button>
+                      ))}
+                    {p.status === "CANCELED" && (
+                      <h4 className={styles.h4Canceled}>
+                        Đơn hàng đã được hủy
+                      </h4>
+                    )}
                   </div>
                 </div>
               );
@@ -191,14 +193,12 @@ const App = () => {
 
             <div className={styles.infoOrderDetail}>
               {filteredOrder.map((p) => (
-                <div key={p._id} >
+                <div key={p._id}>
                   <div className={styles.addressOrderDetail}>
                     <h3>Địa chỉ nhận hàng</h3>
                     <h4>Trương Văn Nhật</h4>
                     <p>03435525253</p>
-                    <p>
-                      {p.shippingAddress}
-                    </p>
+                    <p>{p.shippingAddress}</p>
                   </div>
                   <div className={styles.wrapperOrder}>
                     {p.orderDetails.map((o) => (
@@ -210,7 +210,12 @@ const App = () => {
                             <p style={{ fontSize: "14px" }}>x{o.quantity}</p>
                           </div>
                         </div>
-                        <span>{o.price}đ</span>
+                        <span>
+                          {o.price.toLocaleString("vi-VN", {
+                            style: "currency",
+                            currency: "VND",
+                          })}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -221,32 +226,66 @@ const App = () => {
                         <tr>
                           <td>Tổng tiền hàng:</td>
                           <td>
-                            {p.orderDetails.reduce((total, o) => total + o.price * o.quantity, 0)}đ
+                            {p.orderDetails
+                              .reduce(
+                                (total, o) => total + o.price * o.quantity,
+                                0
+                              )
+                              .toLocaleString("vi-VN", {
+                                style: "currency",
+                                currency: "VND",
+                              })}
                           </td>
                         </tr>
                         <tr>
                           <td>Giảm giá:</td>
                           <td>
-                            {p.orderDetails.reduce((total, o) => total + o.price * o.quantity * (p.discount / 100), 0)}đ
+                            {p.orderDetails
+                              .reduce(
+                                (total, o) =>
+                                  total +
+                                  o.price * o.quantity * (p.discount / 100),
+                                0
+                              )
+                              .toLocaleString("vi-VN", {
+                                style: "currency",
+                                currency: "VND",
+                              })}
                           </td>
                         </tr>
                         <tr>
                           <td>Phí vận chuyển:</td>
-                          <td>11000đ</td>
+                          <td>{(11000).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
                         </tr>
                         <tr>
                           <td>Tổng thanh toán:</td>
-                          { p.paymentType === "CASH"
-                            ?<td className={styles.td}> {p.orderDetails.reduce((total, o) => total + o.price * o.quantity * (1 - (p.discount / 100)), 11000)}đ</td>
-                            :<td  className={styles.td}>0đ</td>
-                          }
+                          {p.paymentType === "CASH" ? (
+                            <td className={styles.td}>
+                              {" "}
+                              {p.orderDetails
+                                .reduce(
+                                  (total, o) =>
+                                    total +
+                                    o.price *
+                                    o.quantity *
+                                    (1 - p.discount / 100),
+                                  11000
+                                )
+                                .toLocaleString("vi-VN", {
+                                  style: "currency",
+                                  currency: "VND",
+                                })}
+                            </td>
+                          ) : (
+                            <td className={styles.td}>{(0).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
+                          )}
                         </tr>
                         <tr>
                           <td>Phương thức thanh toán:</td>
                           <td>
                             {p.paymentType === "CASH"
-                            ? "Thanh toán khi nhận hàng"
-                            : "Đã thanh toán bằng Paypal"}
+                              ? "Thanh toán khi nhận hàng"
+                              : "Đã thanh toán bằng Paypal"}
                           </td>
                         </tr>
                       </tbody>

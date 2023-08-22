@@ -394,9 +394,9 @@ const Checkout = () => {
                     <img src={s.photo} alt="" />
                     <p>{s.name}</p>
                   </td>
-                  <td className={styles.tdPrice}>{s.price}</td>
+                  <td className={styles.tdPrice}>{(s.price).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
                   <td className={styles.tdQuantity}>x{s.quantity}</td>
-                  <td className={styles.tdTotal}>{s.price * s.quantity}</td>
+                  <td className={styles.tdTotal}>{(s.price * s.quantity).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
                 </tr>
               ))}
             </tbody>
@@ -411,7 +411,7 @@ const Checkout = () => {
             <p>
               Tổng tiền cho{" "}
               {selectedProducts.reduce((total, o) => total + o.quantity, 0)} sản
-              phẩm: <span>{totalPriceValue}đ</span>
+              phẩm: <span>{totalPriceValue.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</span>
             </p>
           </div>
         </div>
@@ -445,15 +445,15 @@ const Checkout = () => {
               <tbody>
                 <tr>
                   <td>Tổng tiền hàng:</td>
-                  <td>{totalPriceValue}đ</td>
+                  <td>{totalPriceValue.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
                 </tr>
                 <tr>
                   <td>Phí vận chuyển:</td>
-                  <td>11000đ</td>
+                  <td>{(11000).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
                 </tr>
                 <tr>
                   <td>Tổng thanh toán:</td>
-                  <td className={styles.td}>{totalPriceValue + 11000}đ</td>
+                  <td className={styles.td}>{(totalPriceValue + 11000).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
                 </tr>
               </tbody>
             </table>

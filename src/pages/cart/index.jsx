@@ -278,7 +278,7 @@ const handleDecreaseQuantity = async (productId, id) => {
                     </div>
                    </div>
                    <div className={styles.price}>
-                     <strong>{p.productId.discountedPrice * p.quantity}đ</strong>
+                     <strong>{(p.productId.discountedPrice * p.quantity).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</strong>
                    </div>
                    </div>
                    <span className={styles.delete}  onClick={() => handleRemoveProduct(p.productId._id)}>Xóa</span>
@@ -304,7 +304,7 @@ const handleDecreaseQuantity = async (productId, id) => {
             <hr className={styles.hr} />
             <div className="row">
               <div className="col">{checkedProducts?(<p>{checkedProducts.length} sản phẩm</p> ):(<p>0 sản phẩm</p>)}</div>
-              <div className="col text-right">{totalPrice2}đ</div>
+              <div className="col text-right">{totalPrice2.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</div>
             </div>
             <form className={styles.form}>
               <p>Nhân viên vận chuyển</p>
@@ -329,7 +329,7 @@ const handleDecreaseQuantity = async (productId, id) => {
               }}
             >
               <div className="col">Tổng tiền</div>
-              <strong className="col text-right">{totalPrice1}đ</strong>
+              <strong className="col text-right">{totalPrice1.toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</strong>
             </div>
             <button onClick={handleBuyNow} className={styles.btn}>Mua Hàng</button>
           </div>
