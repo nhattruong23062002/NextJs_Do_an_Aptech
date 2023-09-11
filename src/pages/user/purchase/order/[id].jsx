@@ -21,7 +21,6 @@ import { getTokenFromLocalStorage } from "@/utils/tokenUtils";
 import axiosClient from "@/libraries/axiosClient";
 import MenuComponent from "@/components/Menu";
 
-
 function getItem(label, key, icon, children, type) {
   return {
     key,
@@ -64,7 +63,7 @@ const App = () => {
 
   useEffect(() => {
     const token = getTokenFromLocalStorage();
-  
+
     if (token) {
       try {
         // Giải mã token để lấy thông tin customerId
@@ -83,7 +82,7 @@ const App = () => {
       }
     }
   }, []);
-  
+
   useEffect(() => {
     const checkLoggedIn = async () => {
       const token = getTokenFromLocalStorage();
@@ -161,10 +160,10 @@ const App = () => {
                 p.status === "COMPLETED"
                   ? 3
                   : p.status === "DELIVERING"
-                    ? 2
-                    : p.status === "WAITING"
-                      ? 1
-                      : 0;
+                  ? 2
+                  : p.status === "WAITING"
+                  ? 1
+                  : 0;
               const momentObj = moment(p.createdDate);
               const normalFormat = momentObj.format("DD/MM/YYYY HH:mm:ss");
 
@@ -281,11 +280,16 @@ const App = () => {
                         </tr>
                         <tr>
                           <td>Phí vận chuyển:</td>
-                          <td>{(11000).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
+                          <td>
+                            {(11000).toLocaleString("vi-VN", {
+                              style: "currency",
+                              currency: "VND",
+                            })}
+                          </td>
                         </tr>
                         <tr>
                           <td>Tổng thanh toán:</td>
-                          {p.paymentType === "CASH" ? (
+                          {p.status !== "CANCELED" ? (
                             <td className={styles.td}>
                               {" "}
                               {p.orderDetails
@@ -293,8 +297,8 @@ const App = () => {
                                   (total, o) =>
                                     total +
                                     o.price *
-                                    o.quantity *
-                                    (1 - p.discount / 100),
+                                      o.quantity *
+                                      (1 - p.discount / 100),
                                   11000
                                 )
                                 .toLocaleString("vi-VN", {
@@ -303,7 +307,12 @@ const App = () => {
                                 })}
                             </td>
                           ) : (
-                            <td className={styles.td}>{(0).toLocaleString('vi-VN', { style: 'currency', currency: 'VND' })}</td>
+                            <td className={styles.td}>
+                              {(0).toLocaleString("vi-VN", {
+                                style: "currency",
+                                currency: "VND",
+                              })}
+                            </td>
                           )}
                         </tr>
                         <tr>
