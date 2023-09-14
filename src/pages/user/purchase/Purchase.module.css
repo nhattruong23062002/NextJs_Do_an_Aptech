@@ -15,6 +15,7 @@
   margin: 15px 0px 0px 0px;
   height: auto;
   padding-bottom: 30px;
+  min-height: 500px;
 }
 .navigation {
   width: 100%;
