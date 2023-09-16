@@ -153,7 +153,7 @@ function Header({ handleSearch }) {
                     </li>
                     ):('')}
                     <li>
-                      <a onClick={handleLogout} href="https://next-js-do-an-aptech-duphong.vercel.app/">
+                      <a onClick={handleLogout} href="localhost:3000/">
                         Đăng xuất
                       </a>
                     </li>
